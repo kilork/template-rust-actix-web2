@@ -10,10 +10,10 @@ use {{crate_name}}_frontend::generate;
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
-        let generated = generate();
         let mut app = App::new();
         #[cfg(feature = "ui")]
         {
+            let generated = generate();
             app = app.service(actix_web_static_files::ResourceFiles::new(
                 "/", generated,
             ));
