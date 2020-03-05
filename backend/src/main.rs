@@ -1,15 +1,18 @@
 use actix_web::{App, HttpServer};
+#[cfg(feature = "ui")]
 use actix_web_static_files;
 
 use std::collections::HashMap;
 
-use {{project-name}}_frontend::generate;
+#[cfg(feature = "ui")]
+use {{crate_name}}_frontend::generate;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         let generated = generate();
         let mut app = App::new();
+        #[cfg(feature = "ui")]
         {
             app = app.service(actix_web_static_files::ResourceFiles::new(
                 "/", generated,

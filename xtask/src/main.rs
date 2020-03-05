@@ -125,7 +125,7 @@ fn main() -> Result<()> {
     match subcommand.as_str() {
         "clean" => {
             args.finish()?;
-            spawn(cargo_clean).join()?;
+            spawn(cargo_clean).join().expect("cannot join cargo clean")?;
             npm_clean()?;
         }
         "install" => {
@@ -140,7 +140,7 @@ fn main() -> Result<()> {
                 eprintln!("Cannot build, ignore for now: {:?}", err);
             }
 
-            let npm_task = spawn(run_npm);
+            let npm_task = spawn(npm_start);
 
             let cargo_task = spawn(cargo_watch_run_backend);
 
@@ -149,7 +149,7 @@ fn main() -> Result<()> {
         }
         "serve" => {
             args.finish()?;
-            npm_run()?;
+            npm_start()?;
         }
         _ => {
             eprintln!(
