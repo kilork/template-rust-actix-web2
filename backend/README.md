@@ -1,12 +1,8 @@
-# {{project-name}} description
+# backend description
 
 ## Legal
 
 Dual-licensed under `MIT` or the [UNLICENSE](http://unlicense.org/).
-
-## Prerequisites
-
-Rust and Npm.
 
 ## Features
 
@@ -16,5 +12,5 @@ Add dependency to Cargo.toml:
 
 ```toml
 [dependencies]
-{{project-name}} = "0.1"
+backend = "0.1"
 ```

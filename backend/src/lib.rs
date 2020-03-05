@@ -1,5 +1,5 @@
 /*!
-# {{project-name}} description
+# backend description
 
 ## Features
 
@@ -9,7 +9,7 @@ Add dependency to Cargo.toml:
 
 ```toml
 [dependencies]
-{{project-name}} = "0.1"
+backend = "0.1"
 ```
 
 */
